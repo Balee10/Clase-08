@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuadrícula Adaptativa</title>
+    <title>Aves Chilenas Migratorias sin Disformismo</title>
     <style>
         * {
             margin: 0;
@@ -54,7 +54,7 @@
         .grid-item {
             background: white;
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1rem;
             font-size: 1.5rem;
             color: #666;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -89,7 +89,6 @@
             color: #333;
         }
 
-
     </style>
 </head>
 <body>
@@ -104,9 +103,7 @@
 
     <script>
 
-
         const grid = document.getElementById('grid');
-
 
             async function datos(raw) {
                 let consulta = await fetch(raw);
@@ -115,13 +112,18 @@
 
                 data.forEach((a)=>{
                     if(a.info.dimorfism.value == "No"){
-                        if(a.info.iucn,value == "Vulnerable(VU)"){
-                            
-                    grid.innerHTML += `<div class="grid-item"><img src="${a.image.url.replace("http://www.buscaves.cl/","https://buscaves.cl/")}"/><P>${a.names.spanish}</p><small><small></div>`
-                })
+                       
+                        if(a.info.migration.value == "Sí"){
+                        
+                            grid.innerHTML += `<div class="grid-item"><img src="${a.
+                                image.url.replace("www.buscaves.cl/","buscaves.cl/")}"/><p>${a.names.spanish}</p><small>${a.names.latin}</small></div>`
+                }
                 
             }
-            datos("https://raw.githubusercontent.com/NinjasCL/chileanbirds-dataset/refs/heads/master/data/birds.json").catch((error) => console.error(error));
+        })
+
+}
+            datos("raw.githubusercontent.com/ ... ster/data/birds.json").catch((error) => console.error(error));
 
         
 
